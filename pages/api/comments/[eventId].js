@@ -28,9 +28,9 @@ const handler = async (req, res) => {
       res.status(500).json({ message: 'Inserting data failed!' });
       return;
     }
-  } else if (req.method === 'GET'){
+  } else if (req.method === 'GET') {
     try {
-      const comments = await getAllDocuments(client, 'comments', {_id: -1})
+      const comments = await getAllDocuments(client, 'comments', { _id: -1 }, eventId)
       res.status(200).json({ comments });
     } catch (error) {
       res.status(500).json({ message: 'Failed loading data!' });
